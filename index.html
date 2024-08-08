@@ -5,15 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarala:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sarala:wght@400;700&display=swap" rel="stylesheet">
     <!-- <script src="script.js" defer></script> -->
 
     <title>Library</title>
 </head>
 <body>
+  <header id="brandBar">
+    <div class="logo">
+      <img src="./resources/logos/logo name.png" alt="" srcset="">
+    </div>
+    <nav class="rightNav">
+      <ul>
+        <li><button><select name="lang" id="lang"><option value="English">English</option> <option value="Other Language">Other</option></select></button></li>
+        <li><button class="net-button">Sign In</button></li>
+      </ul>
+    </nav>
+  </header>
     <div id="container">
       <div class="contentCard">
+        <div class="btns">
+          <button class="watch net-button">watch</button><button class="delete net-button">remove</button>
+        </div>
         <div class="contentTitle">
           <p class="title">Damsel</p>
           <span class="infoBar">
@@ -34,6 +48,11 @@
         </form>
       </dialog>
       
-    <button id="addbtn">click me please</button>
+      <section class="addStrip">
+        <img src="./resources/logos/logo.png" alt="" srcset="">
+        <p>Add movies you want</p>
+    <button id="addbtn" class="net-button">Add movies</button>
+
+    </section>
 </body>
 </html>
