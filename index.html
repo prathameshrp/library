@@ -24,7 +24,9 @@
     </nav>
   </header>
     <div id="container">
-      <template id="temp">
+     
+    </div>
+    <template id="temp">
       <div class="contentCard">
         <div class="btns">
           <button class="watch net-button">watch</button><button class="delete net-button">remove</button>
@@ -39,16 +41,38 @@
           </span>
         </div>
 
-        <img src="./resources/covers/damsel.jpg" alt="cover img">
+        <img src="./resources/covers/default.jpg" alt="cover img">
       </div>
     </template>
-    </div>
-
     <dialog>
-        <p>Greetings, one and all!</p>
+        <p>Enter details of your show!</p>
         <form method="dialog">
-          <input type="text" name="movie_name" id="movieName"><input type="text" name="genre" id="genre"><input type="text" name="season" id="season"><input type="text" name="rating" id="rating"><input type="text" name="year_of_release" id="yearOfRelease">
-          <input type="submit" value="submit" formnovalidate id="submissionBtn" />
+
+          <p>
+          <label for="movieName">Movie Name:</label>
+          <input type="text" name="movie_name" id="movieName">
+          </p>
+          <p>
+          <label for="genre">Genre:</label>
+          <input type="text" name="genre" id="genre">
+          </p>
+          <p>
+          <label for="season">season:</label>
+          <input type="text" name="season" id="season">
+          </p>
+          <p>
+          <label for="rating">rating:</label>
+          <input type="text" name="rating" id="rating">
+          </p>
+          <p>
+          <label for="yearOfRelease">Year of release:</label>
+          <input type="text" name="year_of_release" id="yearOfRelease">
+        </p>
+        <p>
+          <input type="submit" value="close" class="net-button" formnovalidate id="closeDialog" />
+
+          <input type="submit" value="submit" class="net-button" formnovalidate id="submissionBtn" />
+        </p>
         </form>
       </dialog>
       

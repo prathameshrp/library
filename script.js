@@ -16,16 +16,18 @@ const rating = document.querySelector('#rating');
 const year = document.querySelector('#yearOfRelease');
 const container = document.querySelector("#container");
 
-function addMovieToLibrary()
+function addMovieToLibrary(event)
 {  
+    event.preventDefault();
     const movie = new Movie(mname.value, genre.value, season.value, rating.value, year.value);
     movies.push(movie);
+    dialog.close();
     displayToScreen();
 }
 
 function displayToScreen()
 {
-    
+    container.replaceChildren();
     for(let i = 0; i < movies.length; ++i)
         {
             let temp = document.querySelector("#temp");
@@ -37,26 +39,24 @@ function displayToScreen()
             clon.querySelector('.rating').textContent = movies[i].rating;
             clon.querySelector('.season').textContent = movies[i].season;
             clon.querySelector('.genre').textContent = movies[i].genre;
-            clon.querySelector('img').setAttribute('src', `./resources/covers/${i+1}.jpg`)
-            // const div = document.createElement('div');
-            // const p1 = document.createElement('p');
-            // const p2 = document.createElement('p');
-            // const p3 = document.createElement('p');
-            // const p4 = document.createElement('p');
-            // const p5 = document.createElement('p');
+            let file = `./resources/covers/${movies[i].name}.jpg`;
+          
+            if([movie1, movie2, movie3, movie4, movie5].includes(movies[i]))
+                    clon.querySelector('img').setAttribute('src', file);
             
-            // p1.textContent = movies[i].name;
-            // p2.textContent = movies[i].genre;
-            // p3.textContent = movies[i].season;
-            // p4.textContent = movies[i].rating;
-            // p5.textContent = movies[i].yearOfRelease;
-            // console.log(movies[i]);
-            // div.appendChild(p1);
-            // div.appendChild(p2);
-            // div.appendChild(p3);
-            // div.appendChild(p4);
-            // div.appendChild(p5);
+        
+
+
+            const del = clon.querySelector(".delete"); 
+            del.setAttribute("data-index", i);
+            del.addEventListener("click", ()=>
+            {
+                let index = del.getAttribute("data-index");
+                movies.splice(index, 1);
+                displayToScreen();
+            })
             container.appendChild(clon);
+          
         }
 }
 
@@ -70,9 +70,9 @@ addbtn.addEventListener("click", ()=>{
 });
 
 const submission = document.querySelector('#submissionBtn');
-
+const close = document.querySelector("#closeDialog");
 submission.addEventListener("click", addMovieToLibrary);
-
+close.addEventListener("click", ()=> dialog.close());
 
 const movie1 = new Movie('Damsel', 'Drama', '1 season', 'U/A 16+', '2024');
 const movie2 = new Movie('Badland Hunters', 'Action', '1 season', 'U/A 16+', '2024');
@@ -83,21 +83,5 @@ const movie5 = new Movie('Blood and gold', 'Mystery', 'show', 'U/A 16+', '2023')
 
 movies.push.apply(movies, [movie1, movie2, movie3, movie4, movie5]);
 
-// movies.push(movie1);
-
 displayToScreen();
 
-// <div class="contentCard">
-// <div class="btns">
-//   <button class="watch net-button">watch</button><button class="delete net-button">remove</button>
-// </div>
-// <div class="contentTitle">
-//   <p class="title">Damsel</p>
-//   <span class="infoBar">
-//     <span class="year">2024</span>
-//     <span class="rating">UA 16+</span>
-//     <span class="season">season 1</span>
-//     <span class="genre">drama</span>
-//   </span>
-// </div>
-// </div>
