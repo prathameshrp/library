@@ -1,0 +1,97 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+:root
+{
+    --scaling-factor: calc(6 * ((100vw - 320px) / 680));
+}
+.sarala-regular {
+    font-family: "Sarala", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .sarala-bold {
+    font-family: "Sarala", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+ 
+body
+{
+    background-color: #0F0F0F;
+}
+#container
+{
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    
+}
+.contentCard
+{
+    height: clamp(min(10vh, 20rem), 37vh, max(90vw, 55rem));
+    position: relative;
+    background: linear-gradient(to top, #000 0%, #00000000 100%);
+    color: white;
+    background-size: cover;
+    font-family: "Sarala", sans-serif;
+    display: flex;
+    justify-content: left;
+    align-items: end;
+    padding: 0 0 0.5rem 0.5rem;
+    /* box-sizing: border-box; */
+    border: 1px solid black;
+    box-shadow: inset 1px 1px 11px 2px black, 1px 1px 4px rgba(0, 0, 0, 0.473);
+}
+.contentCard::before
+{
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-color: aliceblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('./resources/covers/damsel.jpg') no-repeat center center;
+    z-index: -1;
+}
+.contentCard .title, .contentCard .infoBar
+{
+    z-index: 3;
+}
+.title
+{
+    font-size: calc(1rem + var(--scaling-factor));
+    margin-bottom: calc(0.3rem + var(--scaling-factor));
+    text-wrap: wrap;
+}
+.infoBar
+{
+    font-size: calc(1rem);
+    font-family: sans-serif;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1.8fr 1fr 3fr 2fr;
+    justify-items: left;
+    gap: 0.5%;
+    text-wrap: wrap;
+    width: 100%;
+    color: #858585;
+}
+
+.infoBar>span
+{
+  position: relative;
+}
+.infoBar>span::after
+{
+    content: " ";
+
+    border-right: 1px solid #858585;
+    position: absolute;
+    top: 0;
+    bottom: 40%;
+    right: -2px;
+}
