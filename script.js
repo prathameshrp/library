@@ -9,6 +9,7 @@ function Movie(name, genre, season, rating, yearOfRelease)
     this.yearOfRelease = yearOfRelease;
 }
 
+Movie.prototype.watching = false;
 const mname = document.querySelector('#movieName');
 const genre = document.querySelector('#genre');
 const season = document.querySelector('#season');
@@ -44,15 +45,28 @@ function displayToScreen()
             if([movie1, movie2, movie3, movie4, movie5].includes(movies[i]))
                     clon.querySelector('img').setAttribute('src', file);
             
-        
-
+         
 
             const del = clon.querySelector(".delete"); 
+            const watch = clon.querySelector(".watch");
             del.setAttribute("data-index", i);
+            watch.setAttribute("data-index", i);
+
+            if(movies[i].watch)
+            {
+                watch.textContent = "Streaming";
+                watch.setAttribute("style", "background-color: #43956f");
+            }
             del.addEventListener("click", ()=>
             {
                 let index = del.getAttribute("data-index");
                 movies.splice(index, 1);
+                displayToScreen();
+            })
+            watch.addEventListener("click", ()=>
+            {
+                let index = watch.getAttribute("data-index");
+                movies[index].watch = !movies[index].watch;
                 displayToScreen();
             })
             container.appendChild(clon);

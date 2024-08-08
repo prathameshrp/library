@@ -196,7 +196,7 @@ select
     transition: visibility 0s, opacity 0.3s linear;
 }
 .watch, .delete{
-    max-width: 50%;
+    width: max-content;
     text-align: center;
 }
 
