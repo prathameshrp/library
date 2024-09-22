@@ -100,6 +100,9 @@ movies.push.apply(movies, [movie1, movie2, movie3, movie4, movie5]);
 displayToScreen();
 
 // form validation:
+// const genre = document.querySelector('#genre');
+const form = document.querySelector('form');
+const error = document.querySelector('.errorClass');
 
 genre.addEventListener("input", (e)=>{
     if(!genre.validity.valid)
@@ -108,12 +111,13 @@ genre.addEventListener("input", (e)=>{
     }
     else
     {
-        genre.setCustomValidity("");
+        // genre.setCustomValidity("");
+      error.textContent = "";
+      
     }
 })
 
-const form = document.querySelector('form');
-const error = document.querySelector('.errorClass');
+
 form.addEventListener("submit", (e)=>
 
 {
@@ -122,7 +126,7 @@ form.addEventListener("submit", (e)=>
         showError();
         e.preventDefault();
     }
-    addMovieToLibrary();
+    // addMovieToLibrary();
 })
 
 function showError()
@@ -131,7 +135,7 @@ function showError()
     {
         error.textContent = "You need to enter a genre.";
     }
-    else if(genre.validity.typeMismatch)
+    else
     {
         error.textContent = "Wrong option.";
     }

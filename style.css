@@ -288,12 +288,14 @@ input:invalid
 {
     border: 1px solid salmon;
     box-shadow: 0 0 5px #00000034;
+    background-color: rgba(250, 128, 114, 0.315);
 }
 
 .errorClass
 {
     background-color: salmon;
-    width: 100%;
+    width: fit-content;
+    align-self: flex-end;
     color: white;
     height: fit-content;
     font-size: medium;
