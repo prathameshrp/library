@@ -283,3 +283,18 @@ form > p
     display: flex;
     justify-content: space-between;
 }
+
+input:invalid
+{
+    border: 1px solid salmon;
+    box-shadow: 0 0 5px #00000034;
+}
+
+.errorClass
+{
+    background-color: salmon;
+    width: 100%;
+    color: white;
+    height: fit-content;
+    font-size: medium;
+}

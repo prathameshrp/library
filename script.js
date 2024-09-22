@@ -83,9 +83,9 @@ addbtn.addEventListener("click", ()=>{
     dialog.showModal();
 });
 
-const submission = document.querySelector('#submissionBtn');
+// const submission = document.querySelector('#submissionBtn');
 const close = document.querySelector("#closeDialog");
-submission.addEventListener("click", addMovieToLibrary);
+// submission.addEventListener("click", addMovieToLibrary);
 close.addEventListener("click", ()=> dialog.close());
 
 const movie1 = new Movie('Damsel', 'Drama', '1 season', 'U/A 16+', '2024');
@@ -99,3 +99,40 @@ movies.push.apply(movies, [movie1, movie2, movie3, movie4, movie5]);
 
 displayToScreen();
 
+// form validation:
+
+genre.addEventListener("input", (e)=>{
+    if(!genre.validity.valid)
+    {
+        showError();
+    }
+    else
+    {
+        genre.setCustomValidity("");
+    }
+})
+
+const form = document.querySelector('form');
+const error = document.querySelector('.errorClass');
+form.addEventListener("submit", (e)=>
+
+{
+    if(!genre.validity.valid)
+    {
+        showError();
+        e.preventDefault();
+    }
+    addMovieToLibrary();
+})
+
+function showError()
+{
+    if(genre.validity.valueMissing)
+    {
+        error.textContent = "You need to enter a genre.";
+    }
+    else if(genre.validity.typeMismatch)
+    {
+        error.textContent = "Wrong option.";
+    }
+}

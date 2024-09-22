@@ -46,15 +46,23 @@
     </template>
     <dialog>
         <p>Enter details of your show!</p>
-        <form method="dialog">
+        <form method="dialog" novalidate>
 
           <p>
           <label for="movieName">Movie Name:</label>
-          <input type="text" name="movie_name" id="movieName">
+          <input type="text" name="movie_name" id="movieName" required>
           </p>
           <p>
           <label for="genre">Genre:</label>
-          <input type="text" name="genre" id="genre">
+          <input type="text" name="genre" id="genre" list="l1" pattern="[Tt]hriller|[Hh]orror|[Cc]omedy|[Ss]ci-[Ff]i|[Ff]antasy" required>
+            <p class="errorClass" aria-live="polite"></p>
+            <datalist id="l1">
+              <option value="">Thriller</option>
+              <option value="">Horror</option>
+              <option value="">Comedy</option>
+              <option value="">Sci-Fi</option>
+              <option value="">Fantasy</option>
+            </datalist>
           </p>
           <p>
           <label for="season">season:</label>
@@ -71,7 +79,7 @@
         <p>
           <input type="submit" value="close" class="net-button" formnovalidate id="closeDialog" />
 
-          <input type="submit" value="submit" class="net-button" formnovalidate id="submissionBtn" />
+          <input type="submit" value="submit" class="net-button" id="submissionBtn" />
         </p>
         </form>
       </dialog>
